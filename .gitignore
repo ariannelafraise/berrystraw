@@ -1,4 +1,2 @@
-selfedit.py
-versioning.txt
-todo.txt
-/__pycache__
+Pipfile
+Pipfile.lock

@@ -9,35 +9,15 @@ python -m streamlit run web.py --server.address=127.0.0.1
 
 # Builtin dependencies
 import os
-import sys
 import subprocess
 import signal
-import asyncio
 import time
 import json
 
-try: # dependencies that need to be installed
-    from dotenv import load_dotenv, find_dotenv, set_key
-    import streamlit as st
-    import psutil
-except ImportError: # Install dependencies if they are not installed
-    try:
-        exit_code_requirements_install = os.system('pip install -r requirements.txt')
-        if exit_code_requirements_install == 0:
-            from dotenv import load_dotenv
-            import streamlit as st
-            import psutil
-        else:
-            # If installation fails - probably because the tool
-            # was not ran in the current working directory
-            raise subprocess.CalledProcessError(
-                cmd='pip install -r requirements.txt',
-                returncode=exit_code_requirements_install,
-                output='Unable to install dependencies from requirements.txt'
-            )
-    except subprocess.CalledProcessError as e:
-        print(f"{e}\n{e.output}")
-        sys.exit(1)
+# Dependencies that need to be installed
+from dotenv import load_dotenv, find_dotenv, set_key
+import streamlit as st
+import psutil
 
 dotenv_file = find_dotenv()
 load_dotenv(dotenv_file)
@@ -60,6 +40,7 @@ def reset_state():
         json.dump(json_state, f)
     return json_state
 reset_state()
+
 ###
 # STATE CONTROL
 ###

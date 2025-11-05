@@ -5,9 +5,7 @@
 BerryStraw is a self-bot python tool that allows you to add your own commands, to trigger any code. For example, you could control your home smart lights through Discord.
 See the `Extensions` section for more information.
 
-# Web UI
-![WEB interface settings](/res/web_settings.png)
-![WEB interface running](/res/web_running.png)
+![CLI](./res/cli.png)
 
 ## Base features
 - (st) Switch theme: toggle between light and dark theme.
@@ -18,9 +16,13 @@ See the `Extensions` section for more information.
 - See requirements.txt for third-party modules requirements
 
 ## Installation & Usage
-1. Clone this repository.
-2. `pip install streamlit`
-3. Run `python -m streamlit run web.py --server.address=127.0.0.1` from the current working directory.
+1. Add a .env file containing:
+```
+PREFIX='COMMANDS_PREFIX'
+USER_TOKEN='YOUR_TOKEN'
+```
+1. `pip install -r requirements.txt`
+2. `python berrystraw.py`
 
 ## Extensions
 Code your own extensions from the template located at `extensions/example.py`. BerryStraw will automatically detect it and load it.
