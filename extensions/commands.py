@@ -22,8 +22,6 @@ class Commands(commands.Cog):
                 except:
                     await ctx.send("Something went wrong.")
                     return
-                finally:
-                    return
             
             case discord.Theme.dark:
                 try:
@@ -31,8 +29,6 @@ class Commands(commands.Cog):
                     await self.client.settings.edit(theme=discord.Theme.light)
                 except:
                     await ctx.send("Something went wrong.")
-                    return
-                finally:
                     return
             
             case _:
