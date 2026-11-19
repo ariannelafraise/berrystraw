@@ -24,7 +24,6 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 load_dotenv()
 TOKEN = os.getenv('USER_TOKEN')
 PREFIX = os.getenv('PREFIX')
-VERSION = os.getenv('VERSION')
 with open('info.json', 'r') as f:
     info_json = json.load(f)
     VERSION = info_json['version']
